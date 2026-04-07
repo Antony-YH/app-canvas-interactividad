@@ -1,0 +1,30 @@
+/* Estilos generales y fondos */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    background-image: radial-gradient(circle at top right, #1f1f3a, #121212);
+}
+
+.bg-gradient-custom {
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Contenedor del Canvas */
+.canvas-container {
+    background-color: #000;
+    border: 3px solid #2c5364;
+    box-shadow: 0 0 20px rgba(44, 83, 100, 0.6);
+    /* Dimensiones máximas para que no abarque toda la pantalla */
+    max-width: 100%;
+}
+
+canvas {
+    display: block;
+    cursor: crosshair;
+}
+
+/* Panel de estadísticas */
+.stats-panel {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}

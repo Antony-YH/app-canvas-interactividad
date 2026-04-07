@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Burbujas Ascendentes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-dark text-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-custom shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🎮 Bubble Ascend</a>
+            <div class="ms-auto text-end text-light">
+                <small>Desarrollado por: <strong>Tu Nombre / Programador</strong></small>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container flex-grow-1 d-flex flex-column justify-content-center align-items-center py-4">
+        
+        <div class="stats-panel w-100 mb-4 p-3 rounded shadow d-flex justify-content-around align-items-center bg-secondary bg-opacity-25" style="max-width: 600px;">
+            <div class="text-center">
+                <h5 class="text-uppercase text-muted mb-1">Nivel</h5>
+                <h2 class="mb-0 text-info fw-bold"><span id="ui-level">1</span> / 10</h2>
+            </div>
+            <div class="text-center">
+                <h5 class="text-uppercase text-muted mb-1">Eliminados</h5>
+                <h2 class="mb-0 text-warning fw-bold">
+                    <span id="ui-score">0</span> 
+                    <small class="fs-5 text-light">(<span id="ui-percent">0</span>%)</small>
+                </h2>
+            </div>
+        </div>
+
+        <div class="canvas-container shadow-lg rounded overflow-hidden">
+            <canvas id="canvas-rebote"></canvas>
+        </div>
+        
+        <div id="game-over-msg" class="text-center mt-3 d-none">
+            <h3 class="text-success fw-bold">¡Felicidades, completaste todos los niveles!</h3>
+            <button class="btn btn-outline-info mt-2" onclick="location.reload()">Jugar de nuevo</button>
+        </div>
+
+    </main>
+
+    <footer class="bg-gradient-custom py-3 mt-auto shadow-lg">
+        <div class="container text-center">
+            <p class="mb-0 text-light opacity-75">
+                &copy; 2026 Bubble Ascend. Todos los derechos reservados. | Programador: <strong>Tu Nombre</strong>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
