@@ -6,19 +6,59 @@
     --neon-pink: #ff007f;
     --neon-pink-dim: rgba(255, 0, 127, 0.3);
     --neon-green: #39ff14;
+    --neon-green-dim: rgba(57, 255, 20, 0.3);
     --text-dark: #1a1a2e;
+    --glass-bg: rgba(20, 20, 30, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Estilos generales con fuente futurista */
+/* Estilos generales */
 body {
     font-family: 'Orbitron', sans-serif;
     background-color: var(--bg-dark);
-    background-image: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- IMAGEN DE FONDO (Esferas y temática Neón) --- */
+.bg-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Imagen de esferas geométricas oscuras con reflejos neón */
+    background-image: url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2; 
+}
+
+/* Capa de oscurecimiento para no perder legibilidad */
+.bg-image-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado oscuro que resalta el centro */
+    background: radial-gradient(circle at center, rgba(10,10,20,0.5) 0%, rgba(5,5,9,0.9) 100%);
+    z-index: -1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1; 
+}
+
+/* --- ESTILO GLASSMORPHISM (VIDRIO) --- */
+.glass-panel {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid var(--glass-border);
 }
 
 /* Efectos de texto Neón */
@@ -37,45 +77,47 @@ body {
     text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
 }
 
-/* Bordes y Cajas Neón */
-.navbar, footer {
-    background-color: #000 !important;
-}
-
+/* Bordes y Cajas Neón combinados con Glass */
 .neon-border-bottom {
-    border-bottom: 2px solid var(--neon-cyan);
+    border-bottom: 2px solid var(--neon-cyan) !important;
     box-shadow: 0 5px 15px var(--neon-cyan-dim);
 }
 
 .neon-border-top {
-    border-top: 2px solid var(--neon-pink);
+    border-top: 2px solid var(--neon-pink) !important;
     box-shadow: 0 -5px 15px var(--neon-pink-dim);
 }
 
 .neon-border-dark {
-    border-color: rgba(255,255,255,0.1) !important;
+    border-color: rgba(148, 172, 25, 0.558) !important;
 }
 
-.neon-box {
-    background-color: rgba(6, 134, 181, 0.7);
-    border: 1px solid var(--neon-cyan);
-    box-shadow: 0 0 10px var(--neon-cyan-dim), inset 0 0 10px var(--neon-cyan-dim);
-    backdrop-filter: blur(5px);
+/* Cajas Neón Flotantes (Glass) */
+.neon-box-cyan {
+    box-shadow: 0 0 15px var(--neon-cyan-dim), inset 0 0 10px var(--neon-cyan-dim);
 }
 
-.neon-box-strong {
-    background-color: #000;
-    border: 2px solid var(--neon-pink);
-    box-shadow: 0 0 20px var(--neon-pink), inset 0 0 15px rgba(255, 0, 127, 0.5);
+.neon-box-pink {
+    border: 2px solid var(--neon-pink) !important;
+    box-shadow: 0 0 25px var(--neon-pink), inset 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+.neon-box-green {
+    border: 1px solid var(--neon-green) !important;
+    box-shadow: 0 0 15px var(--neon-green-dim);
+}
+
+/* Contenedor del canvas */
+.canvas-container {
     max-width: 100%;
+    border-radius: 1rem; 
 }
 
-/* El canvas propiamente tal */
+/* El canvas: ligeramente transparente para dejar ver la imagen de fondo borrosa */
 canvas {
     display: block;
     cursor: crosshair;
-    /* Fondo muy oscuro para el canvas */
-    background: radial-gradient(#1a1a2e 0%, #000000 100%);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* Botón Neón */
@@ -85,6 +127,8 @@ canvas {
     border: 2px solid var(--neon-cyan);
     text-transform: uppercase;
     font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px var(--neon-cyan-dim);
 }

@@ -43,7 +43,6 @@ canvas.addEventListener('click', () => {
 });
 
 class Circle {
-    // Añadimos el factor "erraticness" (movimiento horizontal)
     constructor(radius, color, text, speedMultiplier, erraticness) {
         this.radius = radius;
         this.posX = Math.random() * (width - radius * 2) + radius;
@@ -53,17 +52,14 @@ class Circle {
         this.color = color;
         this.text = text;
 
-        // Dificultad balanceada:
-        // dx (movimiento horizontal) se multiplica por el factor de erraticidad
         this.dx = (Math.random() - 0.5) * speedMultiplier * erraticness;
-        // dy (velocidad vertical) 
         this.dy = -(Math.random() * 1.5 + 1) * speedMultiplier;
 
         this.isColliding = false;
         this.isHovered = false;
 
         this.isFading = false;
-        this.alpha = 0.8;
+        this.alpha = 0.9; // Opacidad alta para contrastar con el fondo
         this.isDead = false;
     }
 
@@ -71,7 +67,7 @@ class Circle {
         context.save();
 
         if (!this.isFading) {
-            context.shadowBlur = 15;
+            context.shadowBlur = 18;
             context.shadowColor = this.color;
         } else {
             context.shadowBlur = 5;
@@ -90,11 +86,11 @@ class Circle {
         context.closePath();
 
         context.shadowBlur = 0;
-        context.globalAlpha = Math.min(this.alpha + 0.2, 1);
+        context.globalAlpha = Math.min(this.alpha + 0.1, 1);
         context.fillStyle = COLORS.text;
         context.textAlign = "center";
         context.textBaseline = "middle";
-        context.font = `bold ${Math.max(10, this.radius * 0.8)}px Orbitron, Arial`;
+        context.font = `bold ${Math.max(11, this.radius * 0.8)}px Orbitron, Arial`;
         context.fillText(this.text, this.posX, this.posY);
 
         context.restore();
@@ -102,8 +98,8 @@ class Circle {
 
     update(context) {
         if (this.isFading) {
-            this.alpha -= 0.04;
-            this.radius *= 1.03;
+            this.alpha -= 0.05;
+            this.radius *= 1.05;
             if (this.alpha <= 0) {
                 this.isDead = true;
             }
@@ -176,15 +172,9 @@ function initLevel() {
     eliminatedInLevel = 0;
     updateUI();
 
-    // --- CÁLCULO DE DIFICULTAD DINÁMICA ---
-    // 1. Velocidad base (Sube gradualmente)
     let levelSpeed = 1.0 + (currentLevel * 0.25);
-
-    // 2. Comportamiento errático (Se mueven más a los lados en niveles altos)
     let levelErraticness = 1.0 + (currentLevel * 0.4);
 
-    // 3. Tamaño (Se reducen progresivamente, exigiendo más precisión al jugador)
-    // Nivel 1: ~25-30px | Nivel 10: ~10-15px
     let minRadius = Math.max(10, 25 - (currentLevel * 1.5));
     let maxRadius = Math.max(15, 32 - (currentLevel * 1.5));
 
