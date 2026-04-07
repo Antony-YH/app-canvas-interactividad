@@ -19,7 +19,7 @@ let mouseY = -100;
 
 // Colores Neón para el Canvas
 const COLORS = {
-    base: "#ff007f", // Rosa intenso
+    base: "#ff9100", // Rosa intenso
     hover: "#0ff",   // Cian
     collide: "#39ff14", // Verde neón
     text: "#ffffff"

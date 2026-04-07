@@ -3,7 +3,7 @@
     --bg-dark: #050509;
     --neon-cyan: #0ff;
     --neon-cyan-dim: rgba(0, 255, 255, 0.3);
-    --neon-pink: #ff007f;
+    --neon-pink: #ff7700;
     --neon-pink-dim: rgba(255, 0, 127, 0.3);
     --neon-green: #39ff14;
     --neon-green-dim: rgba(57, 255, 20, 0.3);
@@ -28,7 +28,7 @@ body {
     width: 100%;
     height: 100%;
     /* Imagen de esferas geométricas oscuras con reflejos neón */
-    background-image: url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1920');
+    background-image: url('../img/fondo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -99,7 +99,7 @@ body {
 
 .neon-box-pink {
     border: 2px solid var(--neon-pink) !important;
-    box-shadow: 0 0 25px var(--neon-pink), inset 0 0 15px rgba(255, 0, 127, 0.4);
+    box-shadow: 0 0 25px var(--neon-pink), inset 0 0 15px rgba(255, 111, 0, 0.4);
 }
 
 .neon-box-green {
