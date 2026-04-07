@@ -78,7 +78,6 @@ La dificultad se calcula matemáticamente en cada transición de nivel para evit
     └── js/
         └── main.js         # Lógica del motor 2D, físicas, colisiones y estado del juego.
 ```
-```
 
 ---
 
