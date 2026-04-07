@@ -1,6 +1,6 @@
-# 🌌 Neon Glass Ascend
+# 🌌 Interactividad con Gráficos 2D
 
-**Neon Glass Ascend** es un minijuego interactivo de estilo Cyberpunk desarrollado puramente con tecnologías web estándar (Vanilla JavaScript y HTML5 Canvas). El objetivo del juego es eliminar burbujas flotantes mediante clics antes de que escapen, avanzando a través de 10 niveles de dificultad progresiva y dinámica.
+**Interactividad con Gráficos 2D** es un minijuego interactivo de estilo Cyberpunk desarrollado puramente con tecnologías web estándar (Vanilla JavaScript y HTML5 Canvas). El objetivo del juego es eliminar burbujas flotantes mediante clics antes de que escapen, avanzando a través de 10 niveles de dificultad progresiva y dinámica.
 
 El proyecto destaca por su interfaz moderna que combina los estilos visuales de **Glassmorphism** (efecto vidrio esmerilado) y **Neón** de alto contraste.
 
@@ -68,9 +68,16 @@ La dificultad se calcula matemáticamente en cada transición de nivel para evit
 
 ```text
 /
-├── index.html     # Estructura del documento, maquetación UI e importaciones.
-├── style.css      # Estilos Neón, Glassmorphism y capas de imagen de fondo.
-└── main.js        # Lógica del motor 2D, físicas, colisiones y estado del juego.
+├── index.html              # Estructura del documento, maquetación UI e importaciones.
+└── assets/
+    ├── css/
+    │   └── styles.css      # Estilos Neón, Glassmorphism y capas de imagen de fondo.
+    ├── img/
+    |   ├── favicon.png     # Imagen del Icono de la aplicaión.
+    │   └── fondo.jpg       # Imagen abstracta de fondo.
+    └── js/
+        └── main.js         # Lógica del motor 2D, físicas, colisiones y estado del juego.
+```
 ```
 
 ---
