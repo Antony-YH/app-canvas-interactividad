@@ -1,30 +1,96 @@
-/* Estilos generales y fondos */
+/* Variables de color Neón */
+:root {
+    --bg-dark: #050509;
+    --neon-cyan: #0ff;
+    --neon-cyan-dim: rgba(0, 255, 255, 0.3);
+    --neon-pink: #ff007f;
+    --neon-pink-dim: rgba(255, 0, 127, 0.3);
+    --neon-green: #39ff14;
+    --text-dark: #1a1a2e;
+}
+
+/* Estilos generales con fuente futurista */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    background-image: radial-gradient(circle at top right, #1f1f3a, #121212);
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
 }
 
-.bg-gradient-custom {
-    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+/* Efectos de texto Neón */
+.neon-text-cyan {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
 }
 
-/* Contenedor del Canvas */
-.canvas-container {
+.neon-text-pink {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+
+.neon-text-green {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
+
+/* Bordes y Cajas Neón */
+.navbar, footer {
+    background-color: #000 !important;
+}
+
+.neon-border-bottom {
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 5px 15px var(--neon-cyan-dim);
+}
+
+.neon-border-top {
+    border-top: 2px solid var(--neon-pink);
+    box-shadow: 0 -5px 15px var(--neon-pink-dim);
+}
+
+.neon-border-dark {
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+.neon-box {
+    background-color: rgba(6, 134, 181, 0.7);
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan-dim), inset 0 0 10px var(--neon-cyan-dim);
+    backdrop-filter: blur(5px);
+}
+
+.neon-box-strong {
     background-color: #000;
-    border: 3px solid #2c5364;
-    box-shadow: 0 0 20px rgba(44, 83, 100, 0.6);
-    /* Dimensiones máximas para que no abarque toda la pantalla */
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink), inset 0 0 15px rgba(255, 0, 127, 0.5);
     max-width: 100%;
 }
 
+/* El canvas propiamente tal */
 canvas {
     display: block;
     cursor: crosshair;
+    /* Fondo muy oscuro para el canvas */
+    background: radial-gradient(#1a1a2e 0%, #000000 100%);
 }
 
-/* Panel de estadísticas */
-.stats-panel {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+/* Botón Neón */
+.neon-btn-cyan {
+    background: transparent;
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--neon-cyan-dim);
+}
+
+.neon-btn-cyan:hover {
+    background: var(--neon-cyan);
+    color: var(--text-dark);
+    box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
 }
